@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('contact','WelcomeController@contact');
+Route::get('contact', 'WelcomeController@contact');
 
-Route::get('about','PagesController@about');
+Route::get('about', 'PagesController@about');
+
+Route::get('posts', 'PostController@index');
+
+Route::get('posts/create','PostController@create');
+
+Route::post('posts/store','PostController@store');

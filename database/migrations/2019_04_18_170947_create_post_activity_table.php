@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPublishedAtToPostsTable extends Migration
+class CreatePostActivityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddPublishedAtToPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->timestamp('published_at')->nullable();
-            //nullable...nullを入れられるようにする
+        Schema::create('post_activity', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedInteger('post_id');
+            $table->unsignedInteger('activity_id');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ class AddPublishedAtToPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('published_at');
-        });
+        Schema::dropIfExists('post_activity');
     }
 }

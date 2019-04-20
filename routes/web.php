@@ -26,3 +26,13 @@ Route::get('posts', 'PostController@index');
 Route::get('posts/create','PostController@create');
 
 Route::post('posts/store','PostController@store');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('profile', function() {
+    // 認証済みのユーザーのみが入れる
+})->middleware('auth.basic');
+

@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <p>登録画面</p>
-    <form action="/posts/store" method="POST">
+@extends('layouts.app')
+@section('content')
+    <form method="POST" action="{{ route('posts.create') }}" enctype="multipart/form-date">
+    @csrf
         {{-- Laravelが用意してくれているセキュリティ対策 --}}
         {{ csrf_field() }}
-        タイトル:<input type="text" name="title">
-        本文:<input type="text" name="content">
-        画像名:<input type="text" name="image">
-        コメント:<input type="text" name="comment">
-        
-        コスト:<input type="number" name="cost">
-        時間:<input type="number" name="time">
-        人数:<input type="number" name="member">
-        タイプ:<input type="number" name="type">
-        目的地ID:<input type="number" name="destination_id">
-        
-        日付:<input type="date" name="date">
+        <div class="form">
+            <div class="form-title">
+                <div class="form-title">
+                    <label for="title">タイトル</title>
+                    <input type="text" name="title">
+                    本文:<input type="text" name="content">
+                    画像名:<input type="text" name="image">
+                    コメント:<input type="text" name="comment">
+                    
+                    コスト:<input type="number" name="cost">
+                    時間:<input type="number" name="time">
+                    人数:<input type="number" name="member">
+                    タイプ:<input type="number" name="type">
+                    目的地ID:<input type="number" name="destination_id">
+                    
+                    日付:<input type="date" name="date">
 
-        <input type="submit" value="登録">
+                <div>
+                <input type="submit" value="確認">
+                </div>
+            </div>
+        </div>
     </form>
-</body>
-</html>
+@endsection

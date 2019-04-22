@@ -23,10 +23,14 @@ Route::get('about', 'PagesController@about');
 
 Route::get('posts', 'PostController@index');
 
-Route::get('posts/create','PostController@create');
+// 投稿フォームページ
+Route::post('/posts','PostController@showCreateForm')->name('posts.create');
+Route::post('/post', 'PostoController@create');
+
+// 投稿確認ページ
+Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
 
 Route::post('posts/store','PostController@store');
-
 
 Auth::routes();
 

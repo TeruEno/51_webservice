@@ -25,14 +25,23 @@ class PostController extends Controller
 
     // 登録画面の表示
     // GETでアクセス
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+    // 入力画面を表示
     public function create()
     {
+        // return view(ディレクトリ名、ファイル名)
         return view('posts.create');
+    }
+
+
+    // 確認画面を表示
+    public function showCreateForm(Request $request)
+    {
+        // Laravel上で処理中の値を確認できる
+        // ddを実行中は処理がそこでストップする
+        // dd($request->title);
+        return view('posts.detail', compact('request'));
     }
 
     // 登録処理
@@ -59,11 +68,26 @@ class PostController extends Controller
         $post->type = $request->type;
         $post->destination_id = $request->destination_id;
         $post->date = $request->date;
+        $post->user_id = $request->user_id;
 
         // postsテーブルに保存
         $post->save();
 
-        return redirect()->to('/posts');
+        return redirect()->route('posts.detail',[
+            'id' => $post->id,
+        ]);
+    }
+
+    /**
+     * 詳細ページ
+     */
+    public function detail(Post $post)
+    {
+        return view('posts/detail',[
+            'title' => $post->title,
+            'content' => $post->content,
+            'user_id' => $post->user_id,
+        ]);
     }
 
     // 一件取得 = 詳細画面

@@ -40,3 +40,4 @@ Route::get('profile', function() {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth.basic');
 
+Route::resource('users', 'UserController');

@@ -14,22 +14,19 @@ class UserController extends Controller
         return view('users.mypage', compact('user'));
     }
 
-    public function create()
-    {
-    }
-
-    public function store(Request $request)
-    {
-    }
-
     public function show(int $id)
     {
         $user = User::find($id)->first();
         return view('users.edit', compact('user'));
     }
 
-    public function edit(User $user)
+    public function edit(Request $req)
     {
+        $user = User::find($req->user_id)->first();
+        $user->name = $req->user_name;
+        $user->email = $req->user_email;
+        $user->save();
+        return redirect('users');
     }
 
     public function update(Request $request, User $user)

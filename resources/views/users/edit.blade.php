@@ -7,11 +7,11 @@
     <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
     <div>
       <label for="name">ユーザー名：</label>
-      <input type="text" id="name" name="user_name">
+      <input type="text" id="name" name="user_name" value="{{ $user->name }}">
     </div>
     <div>
       <label for="email">メールアドレス：</label>
-      <input type="email" id="email" name="user_email">
+      <input type="email" id="email" name="user_email" value="{{ $user->email }}">
     </div>
     <div>
       <label for="image">画像</label>

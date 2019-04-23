@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('users.mypage', compact(user));
+        return view('users.mypage', compact('user'));
     }
 
     public function create()

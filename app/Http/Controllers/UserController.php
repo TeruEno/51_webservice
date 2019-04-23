@@ -22,8 +22,10 @@ class UserController extends Controller
     {
     }
 
-    public function show(User $user)
+    public function show(int $id)
     {
+        $user = User::find($id)->first();
+        return view('users.edit', compact('user'));
     }
 
     public function edit(User $user)

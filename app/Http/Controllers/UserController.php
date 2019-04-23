@@ -25,8 +25,16 @@ class UserController extends Controller
         $user = User::find($req->user_id)->first();
         $user->name = $req->user_name;
         $user->email = $req->user_email;
+
+        $user->imgae = $this->saveImage($req);
+
         $user->save();
         return redirect('users');
+    }
+
+    private function saveImage(Request $req) {
+        $time = date("Ymdhis");
+        return $req->image_path->storeAs('public/images', $time.'_'.$req->id.'.jpg');
     }
 
     public function update(Request $request, User $user)

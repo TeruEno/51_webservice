@@ -15,28 +15,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// URL, コントローラー名@メソッド名
+// 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('contact', 'WelcomeController@contact');
+Route::get('/contact', 'WelcomeController@contact');
 
-Route::get('about', 'PagesController@about');
+Route::get('/about', 'PagesController@about');
 
-Route::get('posts', 'PostController@index');
+Route::get('/posts', 'PostController@index');
 
 // 投稿フォームページ
 Route::post('/posts','PostController@showCreateForm')->name('posts.create');
-Route::post('/post', 'PostoController@create');
+Route::get('/posts/create', 'PostController@create');
 
 // 投稿確認ページ
+// ->name('');は呼び名を決めている
 Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
 
-Route::post('posts/store','PostController@store');
+Route::post('/posts/store','PostController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('profile', function() {
+Route::get('/profile', function() {
     // 認証済みのユーザーのみが入れる
-})->middleware('auth.basic');
+})->middleware('/auth.basic');
+
 

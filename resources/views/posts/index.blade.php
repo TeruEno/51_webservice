@@ -11,10 +11,12 @@
     
     <a href="/posts/create">新規投稿画面へ</a>
     {{-- foreachの機能に加えて、配列が空だった場合の処理が書ける --}}
+    <!-- 
+    // 今までの投稿を一覧表示する
     @forelse($posts as $p)
         {{ $p->content }}
     @empty
         <p>投稿はまだありません</p>
-    @endforelse
+    @endforelse -->
 </body>
 </html>

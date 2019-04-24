@@ -19,6 +19,7 @@ Route::get('/', function () {
 // 
 Route::get('/', 'WelcomeController@index');
 
+// 投稿関連
 Route::get('/posts', 'PostController@index');
 
 // 投稿フォームページ
@@ -31,6 +32,9 @@ Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
 
 Route::post('/posts/store','PostController@store');
 
+
+
+// Auth関連
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -38,8 +42,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', function() {
     // 認証済みのユーザーのみが入れる
 })->middleware('/auth.basic');
-
-
 
 
 

@@ -61,12 +61,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="image_name">画像選択</label>
-                            <div>
-                                <input id="image_name" type="file" class="col-md-4 col-form-label text-md-right" name="input_image_name" required>
-                            </div>
-                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

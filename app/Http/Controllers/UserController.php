@@ -34,7 +34,9 @@ class UserController extends Controller
 
     private function saveImage(Request $req) {
         $time = date("Ymdhis");
-        return $req->image_path->storeAs('public/images', $time.'_'.$req->id.'.jpg');
+        $filename = $time.'_'.$req->id.'.jpg';
+        $req->image_path->storeAs('public/images', $filename);
+        return $filename;
     }
 
     public function update(Request $request, User $user)

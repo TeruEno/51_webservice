@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register.pre_check') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -58,6 +58,13 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="image_name">画像選択</label>
+                            <div>
+                                <input id="image_name" type="file" class="col-md-4 col-form-label text-md-right" name="input_image_name" required>
                             </div>
                         </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form method="POST" action="{{ route('posts.create') }}" enctype="multipart/form-date">
+<form method="GET" action="/posts/create" enctype="multipart/form-date">
     @csrf
         {{-- Laravelが用意してくれているセキュリティ対策 --}}
         {{ csrf_field() }}
@@ -9,17 +9,52 @@
                 <div class="form-title">
                     <label for="title">タイトル</title>
                     <input type="text" name="title">
-                    本文:<input type="text" name="content">
-                    画像名:<input type="text" name="image">
-                    コメント:<input type="text" name="comment">
+                </div>
+
+                <div class="form-content">
+                    <label for="content" class="form-content">本文</label>
+                    <input type="text" name="content">
+                </div>
+
+                <div class="form-image">
+                    <label for="image" class="form-image">画像名</label>
+                    <input type="text" name="image">
+                </div>
+
+                <div class="form-comment">
+                    <label for="comment" class="form-comment">コメント</label>
+                    <input type="text" name="comment">
+                </div>
+
+                <div class="form-cost">
+                    <label for="cost" class="form-cost">コスト</label>
+                    <input type="number" name="cost">
+                </div>
+
+                <div class="form-time">
+                    <label for="time" class="form-time">時間</label>
+                    <input type="number" name="time">
+                </div>
                     
-                    コスト:<input type="number" name="cost">
-                    時間:<input type="number" name="time">
-                    人数:<input type="number" name="member">
-                    タイプ:<input type="number" name="type">
-                    目的地ID:<input type="number" name="destination_id">
-                    
-                    日付:<input type="date" name="date">
+                <div class="form-member">
+                    <label for="member" class="form-member">人数</label>
+                    <input type="number" name="member">
+                </div>
+                
+                <div class="form-type">
+                    <label for="type" class="form-type">タイプ</label>
+                    <input type="number" name="type">
+                </div>
+                
+                <div>
+                    <label>目的地ID</label>
+                    <input type="number" name="destination_id">
+                </div>
+
+                <div>
+                    <label>日付</label>
+                    <input type="date" name="date">
+                </div>
 
                 <div>
                 <input type="submit" value="確認">

@@ -26,7 +26,7 @@ class UserController extends Controller
         $user->name = $req->user_name;
         $user->email = $req->user_email;
 
-        $user->imgae = $this->saveImage($req);
+        $user->image = $this->saveImage($req);
 
         $user->save();
         return redirect('users');

@@ -40,3 +40,13 @@ Route::get('profile', function() {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth.basic');
 
+
+
+
+// ユーザー情報関連
+// マイページ画面の表示
+Route::get('users', 'UserController@index');
+// 編集画面の表示
+Route::get('users/{id}', 'UserController@show');
+// 編集処理
+Route::post('users/{id}', 'UserController@edit');

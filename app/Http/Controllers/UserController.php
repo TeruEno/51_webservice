@@ -39,6 +39,8 @@ class UserController extends Controller
         return $filename;
     }
 
+
+
     public function update(Request $request, User $user)
     {
     }

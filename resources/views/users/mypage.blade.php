@@ -7,4 +7,5 @@
     </div>
     <h1>ユーザー名：{{ $user->name }}</h1>
     <a href="/users/{{ $user->id }}">編集</a>
+    <a href="/users/delete">削除</a>
 @endsection

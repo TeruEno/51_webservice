@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //  使うモデルやクラスを記述する
 use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,6 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
         // Eloquentの機能を使ってデータを取得
         // SELECT * FROM posts;
         $posts = Post::all();
@@ -30,6 +33,7 @@ class PostController extends Controller
     // 入力画面を表示
     public function create()
     {
+        $user = Auth::user();
         // return view(ディレクトリ名、ファイル名)
         return view('posts.create');
     }

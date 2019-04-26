@@ -11,6 +11,8 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
+
+        // returnすると処理終了
         return view('users.mypage', compact('user'));
     }
 
@@ -20,6 +22,7 @@ class UserController extends Controller
         return view('users.edit', compact('user'));
     }
 
+    // アカウント情報編集
     public function edit(Request $req)
     {
         $user = User::find($req->user_id)->first();
@@ -32,6 +35,7 @@ class UserController extends Controller
         return redirect('users');
     }
 
+    // 画像登録
     private function saveImage(Request $req) {
         $time = date("Ymdhis");
         $filename = $time.'_'.$req->id.'.jpg';
@@ -43,7 +47,17 @@ class UserController extends Controller
     {
     }
 
+    // アカウント削除
     public function destroy(User $user)
     {
+        // ログインしているユーザーの情報を取得する
+        $user = Auth::user();
+
+        // 取得したユーザー情報を削除する
+        // ($user->id) = $userのid
+        User::destroy($user->id);
+
+        // Topページにリダイレクトする
+        return redirect('/');
     }
 }

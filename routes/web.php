@@ -37,12 +37,13 @@ Route::get('/profile', function() {
 
 
 // 投稿関連
-Route::get('/posts', 'PostController@index');
-
 // 投稿フォームページ
-Route::post('/posts','PostController@showCreateForm')->name('posts.create');
-Route::get('/posts/create', 'PostController@create');
-
+Route::group(['middleware' => 'auth'], function()
+{// ログインしているかどうか判別し、していない場合はログイン画面に遷移する
+    Route::get('/posts', 'PostController@index');
+    Route::post('/posts','PostController@showCreateForm')->name('posts.create');
+    Route::get('/posts/create', 'PostController@create');
+});
 // 投稿確認ページ
 // ->name('');は呼び名を決めている
 Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');

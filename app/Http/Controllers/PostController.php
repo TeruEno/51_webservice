@@ -28,8 +28,6 @@ class PostController extends Controller
 
     // 登録画面の表示
     // GETでアクセス
-
-
     // 入力画面を表示
     public function create()
     {

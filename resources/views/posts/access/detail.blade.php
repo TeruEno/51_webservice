@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form action="/posts/store" method="POST" type="hidden">
+<form action="/posts/access/store" method="POST" type="hidden">
 <p>タイトル：{{ $request->title }}</p>
 <p>本文：{{ $request->content }}</p>
 <p>画像名：{{ $request->image }}</p>

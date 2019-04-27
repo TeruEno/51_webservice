@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth'], function()
 {// ログインしているかどうか判別し、していない場合はログイン画面に遷移する
     Route::get('/posts', 'PostController@index');
     Route::post('/posts','PostController@showCreateForm')->name('posts.create');
-    Route::get('/posts/create', 'PostController@create');
+    Route::get('/posts/access/create', 'PostController@accessCreate');
+    Route::get('/posts/activity/create', 'PostController@activityCreate');
 });
 // 投稿確認ページ
 // ->name('');は呼び名を決めている

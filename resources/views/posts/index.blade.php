@@ -21,5 +21,7 @@
     @empty
         <p>投稿はまだありません</p>
     @endforelse -->
+    <br>
+    <a href="/posts/delete">投稿記事を削除する</a>
 </body>
 </html>

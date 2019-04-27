@@ -156,6 +156,16 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // マイページから遷移した場合のみアクセス可能
+        // ログインしているユーザー情報を取得する
+        $user = Auth::user();
+        // 取得したユーザ情報を元に今までに投稿した記事のidを取得する
+        $posts = Post::all();
+        // 取得した投稿記事をの中から削除したい記事を選択する
+
+        // 選択した記事を削除する
+        Post::destroy($posts->id);
+        // マイページにリダイレクトする
+        return redirect('posts/index');
     }
 }

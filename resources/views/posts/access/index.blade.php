@@ -9,10 +9,7 @@
 <body>
     <p>こんにちは</p>
     
-    <p>新規投稿画面へ</p>
-    <a href="/posts/access/create">目的地への行き方を投稿する</a>
-    <a>/</a>
-    <a href="/posts/activity/create">アクティビティの内容を投稿する</a>
+    <a href="/posts/create">新規投稿画面へ</a>
     {{-- foreachの機能に加えて、配列が空だった場合の処理が書ける --}}
     <!-- 
     // 今までの投稿を一覧表示する

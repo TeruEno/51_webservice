@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 //  使うモデルやクラスを記述する
 use App\Post;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -28,14 +29,27 @@ class PostController extends Controller
 
     // 登録画面の表示
     // GETでアクセス
-    // 入力画面を表示
-    public function create()
+    // 目的地への行き方投稿用入力画面を表示
+    public function accessCreate()
     {
+        // ログインしているかどうか判別
+        // ログインしているユーザーの情報を取得する
         $user = Auth::user();
+
+        // 目的地への行き方投稿
         // return view(ディレクトリ名、ファイル名)
-        return view('posts.create');
+        return view('posts.access.create');
     }
 
+    // アクティビティ投稿用入力画面を表示
+    public function activityCreate()
+    {
+        // ログインしているかどうか判別
+        // ログインしているユーザーの情報を取得する
+        $user = Auth::user();
+        // アクティビティ内容投稿
+        return view('posts.activity.create');
+    }
 
     // 確認画面を表示
     public function showCreateForm(Request $request)
@@ -54,10 +68,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function Store(Request $request)
     {
         // Postオブジェクト作成
-        $post = new Post;
+        $accesspost = new AccessPost;
 
         // $postの各地にリクエストの内容を代入
         $post->title = $request->title;

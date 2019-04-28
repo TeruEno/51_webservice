@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('layout')
+<link rel="stylesheet" href="{{ ('css/app.css') }}">
+@section('content')
     <p>こんにちは</p>
     
     <p>新規投稿画面へ</p>
@@ -21,5 +15,6 @@
     @empty
         <p>投稿はまだありません</p>
     @endforelse -->
-</body>
-</html>
+    <br>
+    <a href="/posts/delete">投稿記事を削除する</a>
+@endsection

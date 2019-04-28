@@ -45,10 +45,14 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/posts/access/create', 'PostController@accessCreate');
     Route::get('/posts/activity/create', 'PostController@activityCreate');
 });
+
+// 削除処理
+Route::get('posts/delete', 'PostController@destroy');
+
 // 投稿確認ページ
 // ->name('');は呼び名を決めている
 Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
-
+// 登録処理
 Route::post('/posts/store','PostController@store');
 
 

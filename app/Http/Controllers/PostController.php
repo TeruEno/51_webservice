@@ -154,7 +154,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $posts)
     {
         // マイページから遷移した場合のみアクセス可能
         // ログインしているユーザー情報を取得する

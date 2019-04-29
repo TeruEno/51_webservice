@@ -41,7 +41,8 @@ Route::get('/profile', function() {
 Route::group(['middleware' => 'auth'], function()
 {// ログインしているかどうか判別し、していない場合はログイン画面に遷移する
     Route::get('/posts', 'PostController@index');
-    Route::post('/posts','PostController@showCreateForm')->name('posts.create');
+    Route::post('/posts','PostController@showAccessCreateForm')->name('posts.access.create');
+    Route::post('/posts','PostController@showActivityCreateForm')->name('posts.activity.create');
     Route::get('/posts/access/create', 'PostController@accessCreate');
     Route::get('/posts/activity/create', 'PostController@activityCreate');
 });
@@ -51,7 +52,8 @@ Route::get('posts/delete', 'PostController@destroy');
 
 // 投稿確認ページ
 // ->name('');は呼び名を決めている
-Route::get('/post/{post}', 'PostController@detail')->name('posts.detail');
+Route::post('/posts/access/detail', 'PostController@accessDetail')->name('posts.access.detail');
+Route::get('/posts/activity/detail', 'PostController@activityDetail')->name('posts.activity.detail');
 // 登録処理
 Route::post('/posts/store','PostController@store');
 

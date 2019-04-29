@@ -27,9 +27,9 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    // 登録画面の表示
+    // 入力画面を表示
     // GETでアクセス
-    // 目的地への行き方投稿用入力画面を表示
+    // 目的地への行き方投稿用
     public function accessCreate()
     {
         // ログインしているかどうか判別
@@ -41,7 +41,7 @@ class PostController extends Controller
         return view('posts.access.create');
     }
 
-    // アクティビティ投稿用入力画面を表示
+    // アクティビティ投稿用
     public function activityCreate()
     {
         // ログインしているかどうか判別
@@ -52,12 +52,20 @@ class PostController extends Controller
     }
 
     // 確認画面を表示
-    public function showCreateForm(Request $request)
+    public function showAccessCreateForm(Request $request)
     {
         // Laravel上で処理中の値を確認できる
         // ddを実行中は処理がそこでストップする
         // dd($request->title);
-        return view('posts.detail', compact('request'));
+        return view('posts.access.detail', compact('request'));
+    }
+
+    public function showActivityCreateForm(Request $request)
+    {
+        // Laravel上で処理中の値を確認できる
+        // ddを実行中は処理がそこでストップする
+        // dd($request->title);
+        return view('posts.activity.detail', compact('request'));
     }
 
     // 登録処理
@@ -89,7 +97,7 @@ class PostController extends Controller
         // postsテーブルに保存
         $post->save();
 
-        return redirect()->route('posts.detail',[
+        return redirect()->route('posts.access.detail',[
             'id' => $post->id,
         ]);
     }
@@ -97,13 +105,14 @@ class PostController extends Controller
     /**
      * 詳細ページ
      */
-    public function detail(Post $post)
+    public function accessDetail(Request $request)
     {
-        return view('posts/detail',[
-            'title' => $post->title,
-            'content' => $post->content,
-            'user_id' => $post->user_id,
-        ]);
+        return view('posts/access/detail', compact('request'));
+    }
+
+    public function activityDetail(Request $request)
+    {
+        return view('posts/activity/detail',compact('request'));
     }
 
     // 一件取得 = 詳細画面

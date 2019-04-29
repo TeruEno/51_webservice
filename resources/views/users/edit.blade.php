@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+@csrf
   <h1>ユーザー情報編集</h1>
   <form method="POST" action="/users/{{ $user->id }}" enctype="multipart/form-data">
     {{ csrf_field() }}

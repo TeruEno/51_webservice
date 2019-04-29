@@ -1,6 +1,7 @@
 @extends('layout')
 <link rel="stylesheet" href="{{ ('css/mypage.css') }}">
 @section('content')
+@csrf
     <h1>MY PAGE</h1>
     <div>
         <img class="object-fit-img" src="storage/images/{{ $user->image }}">

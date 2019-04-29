@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form method="GET" action="/posts/create" enctype="multipart/form-date">
+<form method="POST" action="/posts/access/detail" enctype="multipart/form-date">
     @csrf
         {{-- Laravelが用意してくれているセキュリティ対策 --}}
         {{ csrf_field() }}
@@ -17,8 +17,10 @@
                 </div>
 
                 <div>
-                    <label>目的地名</label>
-                    <input type="number" name="destination_id">
+                    <label>地域名</label>
+                    <select name="area_id">
+                        <option value="area_name"></option>
+                    </select>
                 </div>
 
                 <div>
@@ -56,10 +58,13 @@
                     <label for="member" class="form-member">人数</label>
                     <input type="number" name="member">
                 </div>
-                
+
                 <div>
-                <input type="submit" value="確認">
+                    <input type="submit" value="確認">
                 </div>
+
+                <input type="hidden" name="type" value="1">
+                
             </div>
         </div>
     </form>

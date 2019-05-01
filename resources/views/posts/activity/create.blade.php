@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <form method="GET" action="/posts/activity/create" enctype="multipart/form-date">
-    @csrf
         {{-- Laravelが用意してくれているセキュリティ対策 --}}
         {{ csrf_field() }}
         <div class="form">
@@ -27,18 +26,13 @@
                 </div>
 
                 <div class="form-image">
-                    <label for="image" class="form-image">画像名</label>
+                    <label for="image" class="form-image">画像</label>
                     <input type="text" name="image">
                 </div>
 
                 <div>
                     <label for="movie" class="form-movie">動画</label>
                     <input type="" name="movie">
-                </div>
-
-                <div class="form-comment">
-                    <label for="comment" class="form-comment">コメント</label>
-                    <input type="text" name="comment">
                 </div>
 
                 <div class="form-cost">
@@ -54,6 +48,11 @@
                 <div class="form-member">
                     <label for="member" class="form-member">人数</label>
                     <input type="number" name="member">
+                </div>
+
+                <div class="form-comment">
+                    <label for="comment" class="form-comment">コメント</label>
+                    <input type="text" name="comment">
                 </div>
 
                 <input type="hidden" name="type" value="2">

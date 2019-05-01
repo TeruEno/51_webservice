@@ -11,20 +11,25 @@
                     <input type="text" name="title">
                 </div>
 
-                <div>
-                    <label>日付</label>
+                <div calss="form-date">
+                    <label calss="form-date">日付</label>
                     <input type="date" name="date">
                 </div>
 
                 <div>
-                    <label>地域名</label>
+                    <label class="form-area_id">地域名</label>
                     <select name="area_id">
-                        <option value="area_name"></option>
+                        <option value="area"></option>
                     </select>
                 </div>
 
-                <div>
-                    <label>住所</label>
+                <div class="form-destination">
+                    <label class="destination">目的地名</label>
+                    <input type="text" name="destination">
+                </div>
+
+                <div class="form-adress">
+                    <label class="adress">住所</label>
                     <input type="text" name="adress">
                 </div>
 
@@ -58,13 +63,14 @@
                     <label for="member" class="form-member">人数</label>
                     <input type="number" name="member">
                 </div>
-
+                
+                <input type="hidden" name="type" value="1">
+                
                 <div>
                     <input type="submit" value="確認">
                 </div>
 
-                <input type="hidden" name="type" value="1">
-                
+
             </div>
         </div>
     </form>

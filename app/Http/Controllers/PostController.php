@@ -76,10 +76,10 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function Store(Request $request)
+    public function store(Request $request)
     {
         // Postオブジェクト作成
-        $accesspost = new AccessPost;
+        $post = new Post;
 
         // $postの各地にリクエストの内容を代入
         $post->title = $request->title;
@@ -90,16 +90,20 @@ class PostController extends Controller
         $post->time = $request->time;
         $post->member = $request->member;
         $post->type = $request->type;
-        $post->destination_id = $request->destination_id;
+        $post->area_id = $request->area_id;
         $post->date = $request->date;
         $post->user_id = $request->user_id;
+        
+        if ($request->type == 1){
+            $post->adress = $request->adress;
+        } else {
+            $post->movie = $request->movie;
+        }
 
         // postsテーブルに保存
         $post->save();
 
-        return redirect()->route('posts.access.detail',[
-            'id' => $post->id,
-        ]);
+        return redirect()->route('posts');
     }
 
     /**
